@@ -1,7 +1,7 @@
 {
-  "name": "autoload",
-  "version": "0.0.1",
-  "description": "Dependency manager and ioc container for your next NodeJs application",
+  "name": "flodloader",
+  "version": "0.0.2-alpha",
+  "description": "Dependency manager, autoload and ioc container for your next NodeJs application",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -41,21 +41,18 @@
   "dependencies": {
     "caller": "^1.0.1",
     "debug": "^3.1.0",
+    "find-root": "^1.1.0",
     "lodash": "^4.17.4",
     "require-stack": "^1.0.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NortonPerson/autoload.git"
-  },
   "keywords": [
     "ioc",
+    "autoload",
     "dependency",
     "injection",
     "service",
     "autoloading"
   ],
-  "homepage": "https://github.com/NortonPerson/autoload#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
