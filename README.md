@@ -34,16 +34,6 @@ require('flodloader')
 ```
 
 
-### using scripts in package.json
-
-```
-  "scripts": {
-    "start": "autoload index.js",
-    ...
-  },
-```
-
-
 ## Basic Usage
 
 ```js

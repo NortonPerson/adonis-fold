@@ -1,6 +1,6 @@
 {
   "name": "flodloader",
-  "version": "0.0.2-alpha",
+  "version": "0.0.2",
   "description": "Dependency manager, autoload and ioc container for your next NodeJs application",
   "main": "index.js",
   "directories": {
@@ -58,6 +58,14 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
+  "bugs": {
+    "url": "https://github.com/NortonPerson/flodloader/issues"
+  },
+  "homepage": "https://github.com/NortonPerson/flodloader#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NortonPerson/flodloader.git"
+  },
   "nyc": {
     "include": [
       "src"
@@ -65,19 +73,5 @@
   },
   "bin": {
     "autoload": "autoload.js"
-  },
-  "autoload": {
-    "root": "App",
-    "directories": {
-      "app": "./src",
-      "test": "./test"
-    },
-    "preLoadFiles": [
-      "./start.js"
-    ],
-    "autoloads": {
-      "App": "./src",
-      "Test": "./test"
-    }
   }
 }

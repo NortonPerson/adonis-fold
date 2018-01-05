@@ -12,7 +12,7 @@ const Autoload = require('./src/Autoload')
 const registrar = new (require('./src/Registrar'))(ioc)
 
 // get root path projcet have file package.json
-const root = findRoot(__dirname)
+const root = findRoot(process.env.PWD)
 
 const autoload = new Autoload(ioc, resolver, root)
 autoload.register()
