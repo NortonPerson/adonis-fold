@@ -111,12 +111,6 @@ test.group('Ioc', function () {
     assert.isDefined(chai)
   })
 
-  test('should be able to load a local modules via Ioc.use method', function () {
-    const ioc = new Ioc()
-    const packageFile = ioc.use('../../package')
-    assert.equal(packageFile.name, '@adonisjs/fold')
-  })
-
   test('should be able to define aliases for bindings', function () {
     const ioc = new Ioc()
     const fooFn = function () {}
@@ -174,7 +168,7 @@ test.group('Ioc', function () {
   test('should throw exception when manager does not have an extend method', function () {
     const ioc = new Ioc()
     const fn = () => ioc.manager('App/Foo', class Foo {})
-    assert.throw(fn, 'E_INVALID_IOC_MANAGER: Make sure App/Foo does have a extend method. Report this issue to the provider author')
+    assert.throw(fn, 'Make sure App/Foo does have a extend method. Report this issue to the provider author')
   })
 
   test('should be able to register a manager when manager has an extend method', function () {
@@ -190,7 +184,7 @@ test.group('Ioc', function () {
     const ioc = new Ioc()
     ioc.extend('App/Foo')
     const fn = () => ioc.executeExtendCalls()
-    assert.throw(fn, 'E_CANNOT_EXTEND_BINDING: App/Foo cannot be extended, since their is no public interface to extend')
+    assert.throw(fn, 'App/Foo cannot be extended, since their is no public interface to extend')
   })
 
   test('should throw an exception when trying to extend a binding and closure is not defined', function () {
@@ -200,7 +194,7 @@ test.group('Ioc', function () {
     })
     ioc.extend('App/Foo', 'redis')
     const fn = () => ioc.executeExtendCalls()
-    assert.throw(fn, 'E_INVALID_PARAMETER: Ioc.extend expects 3rd parameter to be a closure')
+    assert.throw(fn, 'Ioc.extend expects 3rd parameter to be a closure')
   })
 
   test('should pass the closure value to the manager extend method', function () {
@@ -441,7 +435,7 @@ test.group('Ioc', function () {
   test('should throw exception when a valid dot notated string is not passed to makeFunc', function () {
     const ioc = new Ioc()
     const fn = () => ioc.makeFunc('Foo')
-    assert.throw(fn, 'E_INVALID_MAKE_STRING: Ioc.makeFunc expects a string in module.method format instead received Foo')
+    assert.throw(fn, 'Ioc.makeFunc expects a string in module.method format instead received Foo')
   })
 
   test('should throw exception when method is not found on the object', function () {
@@ -450,7 +444,7 @@ test.group('Ioc', function () {
       return {}
     })
     const fn = () => ioc.makeFunc('Foo.handle')
-    assert.throw(fn, 'E_UNDEFINED_METHOD: Method handle missing on Foo')
+    assert.throw(fn, 'Method handle missing on Foo')
   })
 
   test('should return the method and the instance when expression satisfies the requirements', function () {

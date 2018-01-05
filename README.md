@@ -1,14 +1,10 @@
-# AdonisJs Fold 🚀
-> Dependency manager and IoC container for Node.js
+# FoldLoader 🚀
+> Dependency manager, autoload and IoC container for Node.js
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
-[![Appveyor][appveyor-image]][appveyor-url]
 [![Coveralls][coveralls-image]][coveralls-url]
 
-Fold is a dependency manager for Node.js used by AdonisJs framework. Below is the list of features.
-
-<img src="http://res.cloudinary.com/adonisjs/image/upload/q_100/v1497112678/adonis-purple_pzkmzt.svg" width="200px" align="right" hspace="30px" vspace="100px">
 
 ## Features
 
@@ -23,13 +19,24 @@ Fold is a dependency manager for Node.js used by AdonisJs framework. Below is th
 ## Installation
 You can install the package from npm.
 ```bash
-npm i --save adonis-fold
+npm i --save foldloader
 ```
+
+## Setup
+
+### using require
+
+* Require in main run
+
+```
+require('flodloader')
+```
+
 
 ## Basic Usage
 
 ```js
-const { ioc } = require('adonis-fold')
+const { ioc } = use('Autoload')
 
 class Foo {
 }
@@ -66,10 +73,6 @@ ioc.bind('App/Foo', function (app) {
 const foo = ioc.use('App/Foo')
 ```
 
-This time, we injected `App/Config` behind the scenes and the consumer of the `Foo` class won't have to worry about passing the config manually.
-
-## Moving Forward
-Checkout the [official documentation](http://adonisjs.com/docs/ioc-container) at the AdonisJs website for more info.
 
 ## Tests
 Tests are written using [japa](http://github.com/thetutlage/japa). Run the following commands to run tests.
@@ -88,24 +91,16 @@ npm run test:win
 
 Checkout [CHANGELOG.md](CHANGELOG.md) file for release history.
 
-## Meta
+## Extends
 
-AdonisJs – [@adonisframework](https://twitter.com/adonisframework) – virk@adonisjs.com
+adonis-fold – [@adonis-fold](https://github.com/poppinss/adonis-fold) – virk@adonisjs.com
 
-Checkout [LICENSE.txt](LICENSE.txt) for license information
-
-Harminder Virk (Aman) - [https://github.com/thetutlage](https://github.com/thetutlage)
-
-[appveyor-image]: https://img.shields.io/appveyor/ci/thetutlage/adonis-fold/master.svg?style=flat-square
-
-[appveyor-url]: https://ci.appveyor.com/project/thetutlage/adonis-fold
-
-[npm-image]: https://img.shields.io/npm/v/@adonisjs/fold.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/@adonisjs/fold
-
-[travis-image]: https://img.shields.io/travis/poppinss/adonis-fold/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/poppinss/adonis-fold
-
-[coveralls-image]: https://img.shields.io/coveralls/poppinss/adonis-fold/develop.svg?style=flat-square
-
-[coveralls-url]: https://coveralls.io/github/poppinss/adonis-fold
+  
+ [npm-image]: https://img.shields.io/npm/v/foldloader.svg?style=flat-square
+ [npm-url]: https://npmjs.org/package/foldloader
+  
+ [travis-image]: https://travis-ci.org/NortonPerson/foldloader.svg?branch=develop
+ [travis-url]: https://travis-ci.org/NortonPerson/foldloader
+  
+ [coveralls-image]: https://img.shields.io/coveralls/NortonPerson/foldloader/develop.svg?style=flat-square
+ [coveralls-url]: https://travis-ci.org/NortonPerson/foldloader
