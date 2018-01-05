@@ -99,7 +99,7 @@ adonis-fold – [@adonis-fold](https://github.com/poppinss/adonis-fold) – virk
  [npm-image]: https://img.shields.io/npm/v/foldloader.svg?style=flat-square
  [npm-url]: https://npmjs.org/package/foldloader
   
- [travis-image]: https://img.shields.io/travis/NortonPerson/foldloader/dawn.svg?style=flat-square
+ [travis-image]: https://travis-ci.org/NortonPerson/foldloader.svg?branch=develop
  [travis-url]: https://travis-ci.org/NortonPerson/foldloader
   
  [coveralls-image]: https://img.shields.io/coveralls/NortonPerson/foldloader/develop.svg?style=flat-square
