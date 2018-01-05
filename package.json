@@ -1,5 +1,5 @@
 {
-  "name": "flodloader",
+  "name": "foldloader",
   "version": "0.0.2",
   "description": "Dependency manager, autoload and ioc container for your next NodeJs application",
   "main": "index.js",
@@ -59,12 +59,12 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/NortonPerson/flodloader/issues"
+    "url": "https://github.com/NortonPerson/foldloader/issues"
   },
-  "homepage": "https://github.com/NortonPerson/flodloader#readme",
+  "homepage": "https://github.com/NortonPerson/foldloader#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NortonPerson/flodloader.git"
+    "url": "git+https://github.com/NortonPerson/foldloader.git"
   },
   "nyc": {
     "include": [
