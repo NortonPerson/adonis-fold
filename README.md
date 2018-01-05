@@ -3,7 +3,6 @@
 
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
-[![Appveyor][appveyor-image]][appveyor-url]
 [![Coveralls][coveralls-image]][coveralls-url]
 
 
@@ -95,3 +94,13 @@ Checkout [CHANGELOG.md](CHANGELOG.md) file for release history.
 ## Extends
 
 adonis-fold – [@adonis-fold](https://github.com/poppinss/adonis-fold) – virk@adonisjs.com
+
+  
+ [npm-image]: https://img.shields.io/npm/v/foldloader.svg?style=flat-square
+ [npm-url]: https://npmjs.org/package/foldloader
+  
+ [travis-image]: https://img.shields.io/travis/NortonPerson/foldloader/dawn.svg?style=flat-square
+ [travis-url]: https://travis-ci.org/NortonPerson/foldloader
+  
+ [coveralls-image]: https://img.shields.io/coveralls/NortonPerson/foldloader/develop.svg?style=flat-square
+ [coveralls-url]: https://travis-ci.org/NortonPerson/foldloader
