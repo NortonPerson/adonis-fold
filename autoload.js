@@ -12,13 +12,13 @@ const registrar = new (require('./src/Registrar'))(ioc)
 const root = findRoot(__dirname)
 
 const autoload = new Autoload(ioc, resolver, root)
-autoload.register();
+autoload.register()
 
 // set use and make global
 global.use = ioc.use.bind(ioc)
 global.make = ioc.make.bind(ioc)
 
 // resgister Autoload
-ioc.singleton('Autoload', function(){
-    return { ioc, resolver, registrar };
+ioc.singleton('Autoload', function () {
+  return { ioc, resolver, registrar }
 })

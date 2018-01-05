@@ -1,1 +1,1 @@
-global.ok = true;
+global.ok = true

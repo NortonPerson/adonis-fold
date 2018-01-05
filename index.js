@@ -6,7 +6,7 @@
 */
 const ServiceProvider = require('./src/ServiceProvider')
 if (!global.use) {
-    require("./autoload")
+  require('./autoload')
 }
 
-module.exports = { ServiceProvider  }
+module.exports = { ServiceProvider }
