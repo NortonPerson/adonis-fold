@@ -1,0 +1,15 @@
+{
+  "name": "test",
+  "autoload": {
+    "root": "App",
+    "directories": {
+      "app": "./src"
+    },
+    "preLoadFiles": [
+      "./start.js"
+    ],
+    "autoloads": {
+      "App": "./src"
+    }
+  }
+}

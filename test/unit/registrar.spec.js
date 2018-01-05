@@ -12,7 +12,7 @@ test.group('Registrar', function () {
     const ioc = new Ioc()
     const registrar = new Registrar(ioc)
     const fn = () => registrar.providers(path.join(__dirname, './app/providers/FooProvider'))
-    assert.throw(fn, 'E_INVALID_PARAMETER: register expects an array of providers to be registered')
+    assert.throw(fn, 'register expects an array of providers to be registered')
   })
 
   test('set providers via array of modules', function () {
@@ -26,7 +26,7 @@ test.group('Registrar', function () {
     const ioc = new Ioc()
     const registrar = new Registrar(ioc)
     const fn = () => registrar.providers([path.join(__dirname, './app/providers/InvalidProvider')])
-    assert.throw(fn, 'E_INVALID_SERVICE_PROVIDER: InvalidProvider must extend base service provider class')
+    assert.throw(fn, 'InvalidProvider must extend base service provider class')
   })
 
   test('should call the boot method only when all providers have been registered', function (done) {
