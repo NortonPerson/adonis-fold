@@ -1,20 +1,12 @@
 'use strict'
 
 /*
- * adonis-fold
+ * autoload
  *
- * (c) Harminder Virk <virk@adonisjs.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
 */
-
-const ioc = new (require('./src/Ioc'))()
 const ServiceProvider = require('./src/ServiceProvider')
-const registrar = new (require('./src/Registrar'))(ioc)
-const resolver = new (require('./src/Resolver/Manager'))(ioc)
+if (!global.use) {
+    require("./autoload")
+}
 
-global.use = ioc.use.bind(ioc)
-global.make = ioc.make.bind(ioc)
-
-module.exports = { ioc, ServiceProvider, registrar, resolver }
+module.exports = { ServiceProvider  }

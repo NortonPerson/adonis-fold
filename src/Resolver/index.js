@@ -1,15 +1,9 @@
 'use strict'
 
 /*
- * adonis-fold
+ * autoload
  *
- * (c) Harminder Virk <virk@adonisjs.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
 */
-
-const GE = require('@adonisjs/generic-exceptions')
 
 /**
  * This class will resolve a namespace or a pattern
@@ -54,9 +48,7 @@ class Resolver {
    */
   _validateDirectories (directories) {
     if (!directories || typeof (directories) !== 'object') {
-      throw GE
-        .InvalidArgumentException
-        .invalidParameter('Cannot initiate resolver without registering directories', directories)
+      throw new Error('Cannot initiate resolver without registering directories', directories)
     }
   }
 
@@ -73,9 +65,7 @@ class Resolver {
    */
   _validateNamespace (appNamespace) {
     if (!appNamespace) {
-      throw GE
-        .InvalidArgumentException
-        .invalidParameter('Cannot initiate resolver without registering appNamespace', appNamespace)
+      throw new Error('Cannot initiate resolver without registering appNamespace', appNamespace)
     }
   }
 
@@ -94,9 +84,7 @@ class Resolver {
    */
   _makeAppNamespace (binding) {
     if (!this._directories[this._forDirectory]) {
-      throw GE
-        .RuntimeException
-        .invoke(`Cannot translate binding, since ${this._forDirectory} is not registered under directories`)
+      throw new Error(`Cannot translate binding, since ${this._forDirectory} is not registered under directories`)
     }
     const basePath = `${this._appNamespace}/${this._directories[this._forDirectory]}`
     return `${basePath}/${binding.replace(basePath, '')}`
@@ -137,9 +125,7 @@ class Resolver {
    */
   translate (binding) {
     if (typeof (binding) !== 'string') {
-      throw GE
-        .InvalidArgumentException
-        .invalidParameter(`Resolver.translate expects binding to be a valid string`, binding)
+      throw new Error(`Resolver.translate expects binding to be a valid string instead received object`, binding)
     }
 
     /**

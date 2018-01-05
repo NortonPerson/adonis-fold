@@ -147,7 +147,7 @@ test.group('Resolver', (group) => {
       return fooInstance
     })
     const fn = () => resolver.resolveFunc('Adonis/Src/Foo')
-    assert.throw(fn, 'E_INVALID_MAKE_STRING: Ioc.makeFunc expects a string in module.method format instead received Adonis/Src/Foo')
+    assert.throw(fn, 'Ioc.makeFunc expects a string in module.method format instead received Adonis/Src/Foo')
   })
 
   test('throw exception when invalid binding format', (assert) => {
@@ -159,7 +159,7 @@ test.group('Resolver', (group) => {
       return fooInstance
     })
     const fn = () => resolver.resolveFunc('Adonis/Src/Foo.bar.baz')
-    assert.throw(fn, 'E_INVALID_MAKE_STRING: Ioc.makeFunc expects a string in module.method format instead received Adonis/Src/Foo.bar.baz')
+    assert.throw(fn, 'Ioc.makeFunc expects a string in module.method format instead received Adonis/Src/Foo.bar.baz')
   })
 
   test('skip dots by escaping them', (assert) => {
@@ -180,7 +180,7 @@ test.group('Resolver', (group) => {
   test('throw exception when binding is not a string, neither a callback', (assert) => {
     const resolver = new Resolver(this.ioc, { httpControllers: 'Controllers' }, 'App')
     const fn = () => resolver.resolveFunc({})
-    assert.throw(fn, 'E_INVALID_PARAMETER: Resolver.translate expects binding to be a valid string instead received object')
+    assert.throw(fn, 'Resolver.translate expects binding to be a valid string instead received object')
   })
 })
 

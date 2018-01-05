@@ -1,6 +1,6 @@
 {
-  "name": "@adonisjs/fold",
-  "version": "4.0.5",
+  "name": "autoload",
+  "version": "0.0.1",
   "description": "Dependency manager and ioc container for your next NodeJs application",
   "main": "index.js",
   "directories": {
@@ -27,7 +27,7 @@
       "**/out/"
     ]
   },
-  "author": "adonisjs",
+  "author": "norton",
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^3.0.0",
@@ -39,7 +39,6 @@
     "standard": "^10.0.3"
   },
   "dependencies": {
-    "@adonisjs/generic-exceptions": "^1.0.0",
     "caller": "^1.0.1",
     "debug": "^3.1.0",
     "lodash": "^4.17.4",
@@ -47,20 +46,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/poppinss/adonis-fold.git"
+    "url": "git+https://github.com/NortonPerson/autoload.git"
   },
   "keywords": [
     "ioc",
     "dependency",
     "injection",
     "service",
-    "provider",
     "autoloading"
   ],
-  "bugs": {
-    "url": "https://github.com/poppinss/adonis-fold/issues"
-  },
-  "homepage": "https://github.com/poppinss/adonis-fold#readme",
+  "homepage": "https://github.com/NortonPerson/autoload#readme",
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
@@ -72,6 +67,20 @@
     ]
   },
   "bin": {
-    "fold": "index.js"
+    "autoload": "autoload.js"
+  },
+  "autoload": {
+    "root": "App",
+    "directories": {
+      "app": "./src",
+      "test": "./test"
+    },
+    "preLoadFiles": [
+      "./start.js"
+    ],
+    "autoloads": {
+      "App": "./src",
+      "Test": "./test"
+    }
   }
 }
