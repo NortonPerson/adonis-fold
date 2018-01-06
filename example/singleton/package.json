@@ -1,0 +1,21 @@
+{
+  "name": "singleton",
+  "version": "1.0.0",
+  "description": "example singleton using flodloader",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "autoload": {
+    "root": "Reposotory",
+    "preLoadFiles": [
+      "./preload.js"
+    ],
+    "autoloads": {
+      "Reposotory": "./Reposotory"
+    }
+  }
+}

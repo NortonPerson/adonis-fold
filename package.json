@@ -1,6 +1,6 @@
 {
   "name": "foldloader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Dependency manager, autoload and ioc container for your next NodeJs application",
   "main": "index.js",
   "directories": {
@@ -19,6 +19,7 @@
     "globals": [
       "describe",
       "it",
+      "use",
       "before",
       "use",
       "make"
