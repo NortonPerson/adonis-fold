@@ -1,4 +1,4 @@
 require('../../index')
 
-const app = use('App/Foo');
-app.find(1);
+const app = use('App/Foo')
+app.find(1)

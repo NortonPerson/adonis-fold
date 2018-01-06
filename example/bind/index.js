@@ -1,4 +1,4 @@
 require('../../index')
 
-const app = use('App');
-App.name()
+const app = use('Base')
+app.name()

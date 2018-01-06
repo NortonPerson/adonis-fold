@@ -1,8 +1,6 @@
 
-
 class Foo {
-
-  constructor(){
+  constructor () {
     this._list = []
     this._id = 1
     this.fooDefaul = {
@@ -11,24 +9,24 @@ class Foo {
     }
   }
 
-  static find (id){
-    if (this._list[id] == null){
+  find (id) {
+    if (this._list[id] == null) {
       throw new Error('not found foo')
     }
     return this._list[id]
   }
-  static save () {
-    this._list[this._id] = Object.assign({ id: this._id }, this.fooDefaul, this._foo)
+  save () {
+    const foo = this._list[this._id] = Object.assign({ id: this._id }, this.fooDefaul, this._foo)
     this._id += 1
-    return this._list[_id]
+    return foo
   }
-  static update(id, data) {
+  update (id, data) {
     const foo = this.find(id)
-    this._list[_id] = Object.assign({ id }, foo, data)
+    this._list[id] = Object.assign({ id }, foo, data)
   }
-  static delete(id) {
+  delete (id) {
     this.find(id)
-    this._list[_id] = null
+    this._list[id] = null
   }
 }
 
