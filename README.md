@@ -26,14 +26,195 @@ npm i --save foldloader
 
 ### using require
 
-* Require in main run
+#### Require in main run
 
-```
+```js
 require('flodloader')
 ```
 
+#### Config in file `package.json`
+```json
+{
+  "autoload": {
+    "root": "App",
+    "directories": {
+      "app": "./src",
+      "test": "./test"
+    },
+    "preLoadFiles": [
+      "./start.js"
+    ],
+    "autoloads": {
+      "App": "./src",
+      "Test": "./test"
+    }
+  }
+}
+```
++ `root` : namespace Root of app
++ `directories` : defind folder using
+```js
+const closure = ioc.use(resolver.forDir('app').translate(closure))
+```
++ `preLoadFiles` : files load after run config autoload
++ `autoloads` : defind namespace of folder
+
 
 ## Basic Usage
+
++ When `require('flodloader')` in main file, it will register two function globle is `use` and `make`
+
+#### function `use`
+```js
+ use(<namespace>)
+```
++ file in node_modules
++ or file in namespace defind in `autoloads` with structure `namespace + file || namespace + folder + file`
+
+#### function `make`
++ require file, constructor and inject to class
+
+```js
+class Foo {
+  static get inject () {
+    return ['App/Bar']
+  }
+
+  constructor (bar) {
+    this.bar = bar
+  }
+}
+
+ const fooInstance = Ioc.make(Foo)
+ ```
+
+#### Namespace default `Autoload`
+```js
+  const { ioc, resolver, registrar } = use('Autoload')
+```
+
+##### Using `ioc`
+  * method `bind` bind file with file or object
+  ```js
+  class Foo {
+  }
+
+  ioc.bind('App/Foo', function () {
+    return new Foo()
+  })
+  ```
+
+  ```js
+  class Foo {
+  }
+
+  ioc.bind('App/Foo', function () {
+    return Foo()
+  })
+  ```
+  * method `singleton` file with file or object as `bind` but is `design pattern singleton`
+  * method `alias` create sholt name
+
+  ```js
+  ioc.alias('Model/Foo', 'Foo')
+  ```
+  * method `use` and `make`
+
+  * method `fake` and `singletonFake` reqlace namespace have exits
+  ```js
+    Ioc.fake('Adonis/Src/Lucid', function () {
+      return FakeModel
+    })
+  ```
+  * method `restore` namespace register
+
+   ```JS
+  Ioc.restore('Adonis/Src/Lucid')
+  Ioc.restore('Adonis/Src/Lucid', 'Adonis/Src/Config')
+  Ioc.restore() // restore all
+  ```
+
+
+##### Using `resolver`
+* method `forDir` get directories was config in `package.json`
+```js
+const closure = ioc.use(resolver.forDir('app').translate(closure))
+```
+
+* method `translate` Translate binding using resolver translate
+```js
+const closure = ioc.use(resolver.forDir('app').translate(closure))
+```
+
+* method `resolve`Resolves the binding from the IoC container. This method is a combination of `translate` and `Ioc.make` function.
+```js
+  // class  App/User
+ const handler = resolver.resolveFunc('App/User')
+```
+
+* method `resolveFunc` Resolves a function by translating the binding and then validating the existence of the method on the binding object. Also if the `binding` param is a function, it will be recognized and returned.
+
+```js
+  // with `find` as method of  App/User
+ const handlerInstance = resolver.resolveFunc('App/User.find')
+```
+
+
+##### Using `registrar`
+  * register provider class extendes to
+  * all method `register` will call after all method `boot`
+```js
+const { ServiceProvider } = require('flodloader')
+
+class WsProvider extends ServiceProvider {
+  register () {
+    // this app as ioc
+    this.app.singleton('Adonis/Addons/Ws', (app) => {
+      const Ws = require('../src/Ws')
+      const Config = app.use('Adonis/Src/Config')
+      const Context = app.use('Adonis/Addons/WsContext')
+      const Server = app.use('Adonis/Src/Server')
+      return new Ws(Config, Context, Server)
+    })
+  }
+
+  boot () {
+
+  }
+}
+```
+
+* Have register Provider
+```js
+// add provider
+const { registrar } = use('Autoload')
+registrar.providers(arrayProvider)
+reiretrar.register()
+
+```
+
+
+### Base
+with structure folder
+```
+App
+  | index.js
+  | Model
+    | User.js
+  | Helpers
+    | index.js
+start.js
+index.js
+package.json
+```
+* we have require `Model/User.js` anywhere
+```js
+  const foo = ioc.use('Model/User')
+```
+
+
+
+### Using `bind`
 
 ```js
 const { ioc } = use('Autoload')
@@ -86,10 +267,6 @@ npm run test
 # on windows
 npm run test:win
 ```
-
-## Release History
-
-Checkout [CHANGELOG.md](CHANGELOG.md) file for release history.
 
 ## Extends
 
