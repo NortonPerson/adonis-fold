@@ -12,7 +12,7 @@ const Autoload = require('./src/Autoload')
 const registrar = new (require('./src/Registrar'))(ioc)
 
 // get root path projcet have file package.json
-const root = findRoot(process.env.PWD)
+const root = findRoot(process.mainModule.filename)
 
 const autoload = new Autoload(ioc, resolver, root)
 autoload.register()
@@ -25,3 +25,5 @@ global.make = ioc.make.bind(ioc)
 ioc.singleton('Autoload', function () {
   return { ioc, resolver, registrar }
 })
+
+autoload.preLoad()
