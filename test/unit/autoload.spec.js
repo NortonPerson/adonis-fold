@@ -24,8 +24,8 @@ test.group('Autoload', (group) => {
     assert.notEqual(autoload.resolver._directories, {}, 'resolver._directories are not equal is {}')
   })
 
-  test('call _loadPreLoadFiles run preload', () => {
-    autoload._loadPreLoadFiles()
+  test('call preLoad run preload', () => {
+    autoload.preLoad()
     assert.equal(global.ok, true, 'global.ok are not equal is true')
   })
 

@@ -25,3 +25,5 @@ global.make = ioc.make.bind(ioc)
 ioc.singleton('Autoload', function () {
   return { ioc, resolver, registrar }
 })
+
+autoload.preLoad()

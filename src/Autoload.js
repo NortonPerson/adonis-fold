@@ -20,7 +20,7 @@ class Autoload {
    *
    * @private
    */
-  _loadPreLoadFiles () {
+  preLoad () {
     debug('preloading files %j', this._preLoadFiles)
 
     this._preLoadFiles.forEach((file) => {
@@ -111,7 +111,6 @@ class Autoload {
   register () {
     this._setPackageFile()
     this._registerAutoloadedDirectories()
-    this._loadPreLoadFiles()
   }
 }
 
